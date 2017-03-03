@@ -8,7 +8,7 @@ def process(bot, update):
         update.message.reply_text('*Syntax*: `/fb <Facebook video url>`', 'Markdown')
     else:
         parameter = update.message.text.replace("/fb ", "")
-        url_valid = re.match("https?:\/\/www\.facebook\.com\/[\w\s]{6,30}\/videos\/[0-9]{10,18}\/(.+)?", parameter)
+        url_valid = re.match("https?:\/\/www\.facebook\.com\/[.\w\s]{6,30}\/videos\/[0-9]{10,18}\/(.+)?", parameter)
         id = re.search("([0-9]{10,18})", parameter).group(1)
         if url_valid:
             s = requests.get('https://www.facebook.com/video/embed?video_id='+id).text
