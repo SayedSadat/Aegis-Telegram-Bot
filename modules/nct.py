@@ -7,7 +7,7 @@ def process(bot, update):
         update.message.reply_text('*Syntax*: `/nct <url>`', 'Markdown')
     else:
         parameter = update.message.text.replace("/nct ", "")
-        url_valid = re.match("https?:\/\/www\.nhaccuatui\.com\/bai-hat\/[-a-z]+\.[a-z0-9A-Z]+\.html", parameter)
+        url_valid = re.match("https?:\/\/www\.nhaccuatui\.com\/bai-hat\/[-.a-z0-9A-Z]+\.html", parameter)
         if url_valid:
             content = requests.get(parameter).text
             xml = re.search("https?:\/\/www\.nhaccuatui\.com\/flash\/xml\?key1=[0-9a-z]{30,40}", content).group(0)
