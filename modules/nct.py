@@ -13,7 +13,7 @@ def process(bot, update):
             xml = re.search("https?:\/\/www\.nhaccuatui\.com\/flash\/xml\?key1=[0-9a-z]{30,40}", content).group(0)
             headers = {'content-type': 'application/xml'}
             xmlcontent = requests.get(xml, headers=headers).text
-            link = re.search("https?:/\/[^\/]+\.nixcdn\.com\/[-_\/a-zA-Z0-9]+\.mp3", xmlcontent).group(0)
+            link = re.search("https?:\/\/[^\/]+\.nixcdn\.com\/[-_\/a-zA-Z0-9]+\.mp3", xmlcontent).group(0)
             update.message.reply_text("[Download]("+link+")", 'Markdown')
         else:
             update.message.reply_text("You may have the incorrect input, check your parameter")
